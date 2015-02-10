@@ -1,0 +1,12 @@
+---
+  - name: Allow 8300 tcp.
+    ufw: rule=allow port=8300 proto=tcp
+
+  - name: Allow 8300 udp.
+    ufw: rule=allow port=8300 proto=udp
+
+  - name: Allow 8301 tcp.
+    ufw: rule=allow port=8301 proto=tcp
+
+  - name: Allow 8301 udp.
+    ufw: rule=allow port=8301 proto=udp

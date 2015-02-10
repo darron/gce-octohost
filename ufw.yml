@@ -1,0 +1,6 @@
+- hosts: octogce
+  user: ubuntu
+  sudo: True
+  gather_facts: False
+  roles:
+    - setup-ufw

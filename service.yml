@@ -1,0 +1,16 @@
+- hosts: octogce
+  user: ubuntu
+  sudo: True
+  gather_facts: False
+  vars:
+    file: ../files/octo.json
+    dest: /usr/local/octohost/octo.json
+    should_i_force: 'yes'
+    owner: root
+    group: root
+    perms: '0644'
+    python_env:
+      CLOUDSDK_PYTHON_SITEPACKAGES: 1
+    service_account: "{{ lookup('env','GCP_ACCOUNT') }}"
+  roles:
+    - setup-service

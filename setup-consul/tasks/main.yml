@@ -1,0 +1,18 @@
+---
+  - template: src=consul.j2 dest={{ consul_config }} owner=root group=root mode=0644
+    when: my_host_alias != '{{ consul_master_alias }}'
+    register: consulfollower
+
+  - template: src=consul-master.j2 dest={{ consul_config }} owner=root group=root mode=0644
+    when: my_host_alias == '{{ consul_master_alias }}'
+    register: consulmaster
+
+  # If it's installed a new slave config - reload consul.
+  - name: Restart slaves.
+    command: sudo service consul reload
+    when: consulfollower.changed and (my_host_alias != '{{ consul_master_alias }}')
+
+  # Master node.
+  - name: Restart master.
+    command: sudo service consul reload
+    when: consulmaster.changed and (my_host_alias == '{{ consul_master_alias }}')

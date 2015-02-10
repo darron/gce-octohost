@@ -1,0 +1,2 @@
+---
+  - template: src=mysql.j2 dest={{ mysql_env }} owner=root group=root mode=0644

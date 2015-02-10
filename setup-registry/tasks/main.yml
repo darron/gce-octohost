@@ -1,0 +1,8 @@
+---
+  - template: src=env.j2 dest={{ registry_env }} owner=root group=root mode=0644
+
+  - name: Pull the container.
+    command: sudo docker pull google/docker-registry
+
+  - name: Start the local registry.
+    command: sudo docker run -d --env-file=/usr/local/octohost/registry.env -p 5000:5000 google/docker-registry

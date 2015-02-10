@@ -1,0 +1,13 @@
+{
+  "data_dir": "/var/cache/octohost",
+  "server": true,
+  "ui_dir": "/var/lib/consul/ui",
+  "client_addr": "0.0.0.0",
+  "datacenter": "gce",
+  "node_name": "{{ my_host_alias }}",
+  "start_join": [
+    "{{ consul_master }}"
+  ],
+  "enable_syslog": true,
+  "encrypt": "{{ consul_key }}"
+}

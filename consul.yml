@@ -1,0 +1,11 @@
+- hosts: octogce
+  user: ubuntu
+  sudo: True
+  gather_facts: False
+  vars:
+    consul_master: "{{ lookup('env','CONSUL_MASTER') }}"
+    consul_master_alias: "{{ lookup('env','CONSUL_MASTER_ALIAS') }}"
+    consul_key: "{{ lookup('env','CONSUL_KEY') }}"
+    consul_config: "{{ lookup('env','CONSUL_CONFIG') }}"
+  roles:
+    - setup-consul

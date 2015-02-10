@@ -1,0 +1,10 @@
+- hosts: octogce
+  user: ubuntu
+  sudo: True
+  gather_facts: False
+  roles:
+    - setup-registry
+  vars:
+    registry_env: /usr/local/octohost/registry.env
+    gcs_bucket: "{{ lookup('env','GCS_BUCKET') }}"
+    gcp_account: "{{ lookup('env','GCP_ACCOUNT') }}"

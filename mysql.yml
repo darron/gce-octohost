@@ -1,0 +1,11 @@
+- hosts: octogce
+  user: ubuntu
+  sudo: True
+  gather_facts: False
+  vars:
+    mysql_env: /usr/local/octohost/plugins/mysql/env
+    mysql_user: "{{ lookup('env','MYSQL_USER') }}"
+    mysql_password: "{{ lookup('env','MYSQL_PASSWORD') }}"
+    mysql_hostname: "{{ lookup('env','MYSQL_HOSTNAME') }}"
+  roles:
+    - setup-mysql

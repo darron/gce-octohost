@@ -13,4 +13,10 @@ Most configuration values are done from the environment:
 
 Update the values in the .envrc and you should be good to go.
 
+```
+ansible-playbook ufw.yml
+ansible-playbook consul.yml
+ansible-playbook mysql.yml
+```
+
 I haven't gotten it all to work yet - so much of this may be broken.
